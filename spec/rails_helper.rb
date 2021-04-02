@@ -70,6 +70,6 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
-VCR.configure do |config|
-
-end  
+# VCR.configure do |config|
+#
+# end
