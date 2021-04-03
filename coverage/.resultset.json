@@ -1,74 +1,6 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/kn/Projects/mod3/solo_projects/rails-engine/app/models/customer.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          0,
-          null,
-          null
-        ]
-      },
-      "/Users/kn/Projects/mod3/solo_projects/rails-engine/app/models/application_record.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/kn/Projects/mod3/solo_projects/rails-engine/app/models/invoice_item.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/kn/Projects/mod3/solo_projects/rails-engine/app/models/invoice.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null
-        ]
-      },
-      "/Users/kn/Projects/mod3/solo_projects/rails-engine/app/models/item.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          1,
-          null
-        ]
-      },
       "/Users/kn/Projects/mod3/solo_projects/rails-engine/app/models/merchant.rb": {
         "lines": [
           1,
@@ -84,19 +16,185 @@
           null
         ]
       },
-      "/Users/kn/Projects/mod3/solo_projects/rails-engine/app/models/transaction.rb": {
+      "/Users/kn/Projects/mod3/solo_projects/rails-engine/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/kn/Projects/mod3/solo_projects/rails-engine/app/controllers/api/v1/merchants_controller.rb": {
         "lines": [
           1,
           1,
           1,
           null,
           1,
+          2,
+          0,
+          2,
+          0,
+          2,
+          0,
+          null,
+          2,
+          null,
+          2,
+          2,
+          null,
+          null,
+          null,
           1,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null,
           null
         ]
       },
       "/Users/kn/Projects/mod3/solo_projects/rails-engine/app/controllers/application_controller.rb": {
         "lines": [
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/kn/Projects/mod3/solo_projects/rails-engine/app/serializers/merchant_serializer.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/kn/Projects/mod3/solo_projects/rails-engine/app/models/invoice.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/kn/Projects/mod3/solo_projects/rails-engine/app/models/item.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/kn/Projects/mod3/solo_projects/rails-engine/app/models/customer.rb": {
+        "lines": [
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/kn/Projects/mod3/solo_projects/rails-engine/app/models/invoice_item.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/kn/Projects/mod3/solo_projects/rails-engine/app/models/transaction.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/kn/Projects/mod3/solo_projects/rails-engine/app/serializers/item_serializer.rb": {
+        "lines": [
+          0,
+          0,
           0,
           0
         ],
@@ -106,6 +204,27 @@
       "/Users/kn/Projects/mod3/solo_projects/rails-engine/app/controllers/api/v1/invoice_items_controller.rb": {
         "lines": [
           0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/kn/Projects/mod3/solo_projects/rails-engine/app/controllers/api/v1/merchants.rb": {
+        "lines": [
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
           0
         ],
         "branches": {
@@ -127,9 +246,16 @@
         "branches": {
         }
       },
-      "/Users/kn/Projects/mod3/solo_projects/rails-engine/app/controllers/api/v1/merchants_controller.rb": {
+      "/Users/kn/Projects/mod3/solo_projects/rails-engine/app/controllers/api/v1/merchants/search_controller.rb": {
         "lines": [
           0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
           0
         ],
         "branches": {
@@ -137,6 +263,95 @@
       },
       "/Users/kn/Projects/mod3/solo_projects/rails-engine/app/controllers/api/v1/items_controller.rb": {
         "lines": [
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/kn/Projects/mod3/solo_projects/rails-engine/app/controllers/api/v1/merchant_items_controller.rb": {
+        "lines": [
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
           0,
           0
         ],
@@ -152,6 +367,6 @@
         }
       }
     },
-    "timestamp": 1617380604
+    "timestamp": 1617419136
   }
 }
