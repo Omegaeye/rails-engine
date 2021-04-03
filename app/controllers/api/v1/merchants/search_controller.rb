@@ -1,8 +1,13 @@
 class Api::V1::Merchants::SearchController < ApplicationController
-before_action :set_page, only: [:index]
-
+  
   def index
-    @merchants = Merchant.order(created_at: :desc).offset(@page * 50)
+    if Merchant.where('name LIKE ?', "%#{params[:name].downcase}%").empty?
+      render json: {data: {}}
+    else
+      @merchant = Merchant.where('name LIKE ?', "%#{params[:name].downcase}%")
+      @serial = MerchantSerializer.new(@merchant.first)
+      render json: @serial
+    end
   end
 
 
