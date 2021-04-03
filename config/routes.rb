@@ -6,16 +6,16 @@ Rails.application.routes.draw do
       resources :customers
       resources :invoice_items
       resources :transactions
+      resources :invoices
       resources :items
+
+      get '/items/:id/merchant', to: "items/item_merchant#index"
+      get '/items/find_all', to: "items/search#index"
+
+      get '/merchants/find', to: "merchants/search#index"
 
       resources :merchants do
         get '/items', to: "merchant_items#index"
-
-        get '/find', to: "merchants/search#index"
-        member do
-        end
-
-        resources :invoices
       end
     end
   end

@@ -3,15 +3,15 @@ class Api::V1::MerchantsController < ApplicationController
   before_action :set_page, only: :index
   # GET /merchants
   def index
-    @merchants =   if params[:page] && params[:per_page]
-                     Merchant.all.limit(params[:per_page].to_i).offset(params[:per_page].to_i * (@page - 1))
-                   elsif params[:page] && !params[:per_page]
-                      Merchant.all.limit(20).offset(20 * (@page.to_i - 1))
-                   elsif !params[:page] && params[:per_page]
-                      Merchant.all.limit(params[:per_page].to_i).offset(params[:per_page].to_i * 0)
-                   else
-                      Merchant.all.limit(20)
-                   end
+    @merchants = if params[:page] && params[:per_page]
+                   Merchant.all.limit(params[:per_page].to_i).offset(params[:per_page].to_i * (@page - 1))
+                 elsif params[:page] && !params[:per_page]
+                    Merchant.all.limit(20).offset(20 * (@page.to_i - 1))
+                 elsif !params[:page] && params[:per_page]
+                    Merchant.all.limit(params[:per_page].to_i).offset(params[:per_page].to_i * 0)
+                 else
+                    Merchant.all.limit(20)
+                 end
     @serial = MerchantSerializer.new(@merchants)
     render json: @serial
   end
@@ -26,25 +26,24 @@ class Api::V1::MerchantsController < ApplicationController
   def create
    @merchant = Merchant.new(merchant_params)
    if @merchant.save
-    render json: {status: 'SUCCESS', message: 'Saved Merchants', data: @merchant}, status: :created, location: api_v1_merchant_url(@merchant)
+    render json: @merchant, status: :created, location: api_v1_merchant_url(@merchant)
    else
-    render json: {status: 'ERROR', message: 'Merchant not saved', data: @merchant.errors}, status: :unprocessable_entity
+    render json: @merchant.errors, status: :unprocessable_entity
    end
   end
 
   # PATCH/PUT /merchants/1
   def update
    if @merchant.update(merchant_params)
-    render json: {status: 'SUCCESS', message: 'Updated Merchants', data: @merchant}
+    render json: @merchant
    else
-    render json: {status: 'ERROR', message: 'Merchant not updated', data: @merchant.errors}, status: :unprocessable_entity
+    render json: @merchant.errors, status: :unprocessable_entity
    end
   end
 
  # DELETE /merchants/1
   def destroy
    @merchant.destroy
-   render json: {status: 'SUCCESS', message: 'Deleted Merchant', data: @merchant}
   end
 
   private

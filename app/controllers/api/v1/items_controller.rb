@@ -42,7 +42,7 @@ class Api::V1::ItemsController < ApplicationController
      @serial = ItemSerializer.new(@item)
     render json: @serial
    else
-    render json: @item.errors, status: :unprocessable_entity
+    render json: @item.errors, status: 404
    end
   end
 
@@ -61,7 +61,7 @@ class Api::V1::ItemsController < ApplicationController
 
   # Only allow a trusted parameter “white list” through.
   def item_params
-  params.require(:item).permit(:name, :description, :unit_price)
+  params.require(:item).permit(:name, :description, :unit_price, :merchant_id)
   end
 
   def set_page

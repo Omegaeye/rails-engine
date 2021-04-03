@@ -21,7 +21,7 @@ RSpec.describe "Api::V1::Merchants", type: :request do
 
     describe "GET /index" do
       it "renders a successful response" do
-        Api::V1::Merchant.create! valid_attributes
+        Merchant.create! valid_attributes
         get api_v1_merchants_url, headers: valid_headers, as: :json
         expect(response).to be_successful
       end
