@@ -102,17 +102,17 @@
           1,
           null,
           1,
+          9,
           1,
-          0,
-          1,
-          0,
-          1,
-          0,
+          8,
+          3,
+          5,
+          3,
           null,
-          1,
+          2,
           null,
-          1,
-          1,
+          9,
+          9,
           null,
           null,
           null,
@@ -143,14 +143,13 @@
           null,
           1,
           1,
-          1,
           null,
           null,
           1,
           null,
           null,
           1,
-          5,
+          6,
           null,
           null,
           null,
@@ -160,7 +159,7 @@
           null,
           null,
           1,
-          1,
+          9,
           null,
           null,
           null
@@ -169,6 +168,18 @@
       "/Users/kn/Projects/mod3/solo_projects/rails-engine/app/controllers/application_controller.rb": {
         "lines": [
           1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          1,
+          null,
           null,
           null
         ]
@@ -199,27 +210,6 @@
         "branches": {
         }
       },
-      "/Users/kn/Projects/mod3/solo_projects/rails-engine/app/controllers/api/v1/merchants.rb": {
-        "lines": [
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0
-        ],
-        "branches": {
-        }
-      },
       "/Users/kn/Projects/mod3/solo_projects/rails-engine/app/controllers/api/v1/customers_controller.rb": {
         "lines": [
           0,
@@ -239,10 +229,19 @@
       "/Users/kn/Projects/mod3/solo_projects/rails-engine/app/controllers/api/v1/merchants/search_controller.rb": {
         "lines": [
           0,
-          0,
           null,
           0,
           0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
           0,
           null,
           null,
@@ -292,9 +291,6 @@
           0,
           null,
           null,
-          0,
-          0,
-          0,
           0,
           0,
           0,
@@ -355,8 +351,49 @@
         ],
         "branches": {
         }
+      },
+      "/Users/kn/Projects/mod3/solo_projects/rails-engine/app/controllers/api/v1/items/search_controller.rb": {
+        "lines": [
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/kn/Projects/mod3/solo_projects/rails-engine/app/controllers/api/v1/items/item_merchant_controller.rb": {
+        "lines": [
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0
+        ],
+        "branches": {
+        }
       }
     },
-    "timestamp": 1617424279
+    "timestamp": 1617480470
   }
 }

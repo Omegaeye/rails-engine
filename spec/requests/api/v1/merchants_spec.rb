@@ -20,10 +20,98 @@ RSpec.describe "Api::V1::Merchants", type: :request do
   }
 
     describe "GET /index" do
+      before :each do
+        create_list(:merchant, 50)
+      end
+
       it "renders a successful response" do
-        Merchant.create! valid_attributes
         get api_v1_merchants_url, headers: valid_headers, as: :json
         expect(response).to be_successful
+        body = JSON.parse(response.body, symbolize_names: true)
+        expect(body[:data].class).to eq(Array)
+        expect(body[:data].first.class).to eq(Hash)
+      end
+
+      it "renders only 20" do
+        get api_v1_merchants_url, headers: valid_headers, as: :json
+        expect(response).to be_successful
+        body = JSON.parse(response.body, symbolize_names: true)
+        expect(body[:data].size).to eq(20)
+      end
+
+      it "renders pages" do
+        get "/api/v1/merchants?page=1", headers: valid_headers, as: :json
+        expect(response).to be_successful
+        body = JSON.parse(response.body, symbolize_names: true)
+        expect(body[:data].size).to eq(20)
+        expect(body[:data].first[:id]).to eq("101")
+        expect(body[:data].last[:id]).to eq("120")
+      end
+
+      it "renders pages" do
+        merchants = Merchant.all
+        get "/api/v1/merchants?page=2", headers: valid_headers, as: :json
+        expect(response).to be_successful
+        body = JSON.parse(response.body, symbolize_names: true)
+        expect(body[:data].size).to eq(20)
+        expect(body[:data]).to_not be_empty
+        expect(body[:data].first[:id].to_i).to_not eq(merchants.first.id)
+        expect(body[:data].first[:id].to_i).to eq(merchants[20].id)
+        expect(body[:data].last[:id].to_i).to eq(merchants[39].id)
+        expect(body[:data].size).to eq(20)
+      end
+
+      it 'return 50 merchants per page' do
+        merchants = Merchant.all
+        get '/api/v1/merchants?per_page=50', headers: valid_headers, as: :json
+        expect(response).to be_successful
+        body = JSON.parse(response.body, symbolize_names: true)
+        expect(response).to have_http_status(200)
+        expect(body[:data].size).to eq(50)
+        expect(body[:data].first[:id].to_i).to eq(merchants.first.id)
+        expect(body[:data].last[:id].to_i).to eq(merchants[49].id)
+      end
+
+      it 'still returns all merchants if per_page is greater than all merchants' do
+        merchants = Merchant.all
+        get '/api/v1/merchants?per_page=51', headers: valid_headers, as: :json
+        expect(response).to be_successful
+        body = JSON.parse(response.body, symbolize_names: true)
+        expect(response).to have_http_status(200)
+        expect(body[:data].size).to eq(50)
+        expect(body[:data].first[:id].to_i).to eq(merchants.first.id)
+        expect(body[:data].last[:id].to_i).to eq(merchants.last.id)
+      end
+
+      it 'returns the correct amount per page with given param' do
+        merchants = Merchant.all
+        get '/api/v1/merchants?per_page=15', headers: valid_headers, as: :json
+        expect(response).to be_successful
+        body = JSON.parse(response.body, symbolize_names: true)
+        expect(response).to have_http_status(200)
+        expect(body[:data].size).to eq(15)
+        expect(body[:data].first[:id].to_i).to eq(merchants[0].id)
+        expect(body[:data].last[:id].to_i).to eq(merchants[14].id)
+      end
+
+      it 'last page doesnt break if there arent 20 merchants to display' do
+        merchants = Merchant.all
+        get '/api/v1/merchants?page=3&per_page=20', headers: valid_headers, as: :json
+        expect(response).to be_successful
+        body = JSON.parse(response.body, symbolize_names: true)
+        expect(response).to have_http_status(200)
+        expect(body[:data].size).to eq(10)
+        expect(body[:data].first[:id].to_i).to eq(merchants[40].id)
+        expect(body[:data].last[:id].to_i).to eq(merchants[49].id)
+      end
+
+      it 'calling a pge that doesnt have any merchants wont break it' do
+        merchants = Merchant.all
+        get '/api/v1/merchants?page=7', headers: valid_headers, as: :json
+        expect(response).to be_successful
+        body = JSON.parse(response.body, symbolize_names: true)
+        expect(response).to have_http_status(200)
+        expect(body[:data].size).to eq(0)
       end
     end
 
@@ -32,6 +120,14 @@ RSpec.describe "Api::V1::Merchants", type: :request do
         merchant = Merchant.create! valid_attributes
         get api_v1_merchant_url(merchant), headers: valid_headers, as: :json
         expect(response).to be_successful
+      end
+    end
+
+    describe 'get /api/v1/merchant/:id sad path' do
+      it 'bad id returns a 404' do
+        Merchant.create! valid_attributes
+        get "/api/v1/merchants/21", headers: valid_headers, as: :json
+        expect(response).to have_http_status(404)
       end
     end
 
