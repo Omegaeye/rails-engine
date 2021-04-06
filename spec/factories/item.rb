@@ -1,9 +1,12 @@
 FactoryBot.define do
   factory :item do
-    sequence :name do |n|
-      "Item #{n}"
+    sequence :id do |n|
+      n
     end
-    description { "description" }
+    sequence :name do |n|
+      "Item #{Faker::Vehicle.make}"
+    end
+    description { Faker::Vehicle.model }
     sequence :unit_price do |n|
       n * 2
     end

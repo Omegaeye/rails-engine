@@ -1,53 +1,34 @@
 class Api::V1::Items::SearchController < ApplicationController
 
   def index
-    if Item.all.where('name ILIKE ?', "%#{params[:name]}%").empty?
-      render json: {data: []}
+    if !params[:name].present?
+      render json: {data: {}, error: 'error'}, status: 400
     else
-      @items = Item.all.where('name ILIKE ?', "%#{params[:name]}%")
+      @items = Item.filter_by_name(params[:name])
       @serial = ItemSerializer.new(@items)
       render json: @serial
     end
   end
 
   def show
-    # # if params[:name] && (params[:min_price] || params[:max_price])
-    # #   render json: {data: {}}
-    # # end
-    #
-    # # if Item.all.where('name ILIKE ?', "%#{params[:name]}%").empty?
-    # #  render json: {data: {}}
-    # # end
-    #
-    # min_price = params[:min_price].to_i if !params[:min_price]  || params[:min_price].to_i < (1/0.0) && params[:min_price].to_i > 0
-    # max_price = params[:max_price].to_i if !params[:max_price]  || params[:max_price].to_i < (1/0.0) && params[:max_price].to_i > 0
-    #
-    # require "pry"; binding.pry
-    name = params[:name] if params[:name]
-    if Item.all.where('name ILIKE ?', "%#{name}%").empty?
-      render json: {data: {}}
-    elsif params[:min_price] || params[:max_price]
+    @item = Item.where(nil)
 
-      @items = Item.all.where(unit_price: price)
-      @serial = ItemSerializer.new(@items.first)
+    filtering_params(params).each do |key, value|
+        @item = @item.public_send("filter_by_#{key}", value)
+    end
+
+    if @item.present?
+      @serial = ItemSerializer.new(@item.first)
       render json: @serial
     else
-      @items = Item.all.where('name ILIKE ?', "%#{name}%")
-      @serial = ItemSerializer.new(@items.first)
-      render json: @serial
+      render json: {data: {}, error: 'error'}, status: 400
     end
   end
 
-  # private
+  private
 
-  # def item_by_price(price)
-  #   price = params[:min_price].to_i if !params[:min_price]  || params[:min_price].to_i < (1/0.0) || params[:min_price].to_i > 0
-  #   price = params[:max_price].to_i if !params[:max_price]  || params[:max_price].to_i < (1/0.0) || params[:price].to_i > 0
-  # end
-  #
-  # def items_errors(name, price)
-  #   if name && price
-  #     render json: {data: {}}
-  #   end
-  # end
+  def filtering_params(params)
+    params.permit(:name, :min_price, :max_price)
+  end
+
 end
