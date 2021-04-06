@@ -78,7 +78,7 @@ RSpec.describe "Api::V1::Merchants", type: :request do
         expect(response).to be_successful
         body = JSON.parse(response.body, symbolize_names: true)
         expect(response).to have_http_status(200)
-        expect(body[:data].size).to eq(50)
+        expect(body[:data].size).to eq(51)
         expect(body[:data].first[:id].to_i).to eq(merchants.first.id)
         expect(body[:data].last[:id].to_i).to eq(merchants.last.id)
       end
@@ -100,7 +100,7 @@ RSpec.describe "Api::V1::Merchants", type: :request do
         expect(response).to be_successful
         body = JSON.parse(response.body, symbolize_names: true)
         expect(response).to have_http_status(200)
-        expect(body[:data].size).to eq(10)
+        expect(body[:data].size).to eq(12)
         expect(body[:data].first[:id].to_i).to eq(merchants[40].id)
         expect(body[:data].last[:id].to_i).to eq(merchants[49].id)
       end

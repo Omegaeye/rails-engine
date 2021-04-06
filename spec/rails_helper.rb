@@ -59,6 +59,7 @@ RSpec.configure do |config|
 
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
+  # config.include(module name - same as file name), type: :request, also have type: :request in describe or it block in tests
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
