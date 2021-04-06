@@ -57,20 +57,29 @@
           null,
           1,
           null,
-          1,
-          1,
-          3,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           null,
           null,
           null,
           1,
           1,
-          2,
           null,
           null,
           null,
-          1,
-          1,
           1,
           null,
           null,
@@ -341,6 +350,18 @@
         "branches": {
         }
       },
+      "/Users/kn/Projects/mod3/solo_projects/rails-engine/app/serializers/revenue_serializer.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          null,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
       "/Users/kn/Projects/mod3/solo_projects/rails-engine/app/serializers/merchant_most_items_serializer.rb": {
         "lines": [
           0,
@@ -537,8 +558,54 @@
         ],
         "branches": {
         }
+      },
+      "/Users/kn/Projects/mod3/solo_projects/rails-engine/app/controllers/api/v1/revenue_controller.rb": {
+        "lines": [
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/kn/Projects/mod3/solo_projects/rails-engine/app/analytics/revenue_analytic.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
       }
     },
-    "timestamp": 1617693499
+    "timestamp": 1617746186
   }
 }

@@ -35,7 +35,7 @@ class Api::V1::ItemsController < ApplicationController
 
  # DELETE /items/1
   def destroy
-   Invoice.destroy_invoices_with_only_one_item_id(@item.id)
+   @item.invoices.delete_invoice
    @item.destroy
    render json: {status: 'SUCCESS', message: 'Deleted Item', data: @item}
   end
