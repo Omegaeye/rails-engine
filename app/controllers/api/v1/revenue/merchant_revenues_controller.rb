@@ -1,7 +1,7 @@
 class Api::V1::Revenue::MerchantRevenuesController < ApplicationController
 
   def index
-    if !params[:quantity].present?
+    if !params[:quantity].present? || params[:quantity].to_i == 0
       render json: {data: [], error: 'errors'}, status: 400
     else
     @merchants = Merchant.top_by_revenue(params[:quantity])
