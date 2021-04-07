@@ -6,8 +6,6 @@ class Invoice < ApplicationRecord
   has_many :items, through: :invoice_items
   has_many :merchants, through: :items
 
-  enum status: [:in_progress, :cancelled, :completed]
-
   scope :invoices_with_successful_transactions, -> {joins(:transactions).where('transactions.result = ?', 'success').uniq}
 
   # def self.destroy_invoices_with_only_one_item_id(item_id)

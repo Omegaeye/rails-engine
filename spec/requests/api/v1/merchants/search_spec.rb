@@ -57,14 +57,6 @@ RSpec.describe "Api::V1::Merchants::Searches", type: :request do
         expect(body[:data].size).to eq(3)
       end
 
-      it 'edge case testing /find?name=' do
-        merchants = Merchant.all
-        get '/api/v1/merchants/find?name=', headers: valid_headers, as: :json
-        expect(response).to have_http_status(400)
-        body = JSON.parse(response.body, symbolize_names: true)
-        expect(body[:data].size).to eq(0)
-      end
-
       it "Get /find_all edge case" do
         get '/api/v1/merchants/find_all', headers: valid_headers, as: :json
         expect(response).to have_http_status(400)

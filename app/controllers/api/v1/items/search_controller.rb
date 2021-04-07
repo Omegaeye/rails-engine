@@ -12,11 +12,10 @@ class Api::V1::Items::SearchController < ApplicationController
 
   def show
     @item = Item.where(nil)
-
+    
     filtering_params(params).each do |key, value|
         @item = @item.public_send("filter_by_#{key}", value)
     end
-
     if @item.present?
       @serial = ItemSerializer.new(@item.first)
       render json: @serial
@@ -30,5 +29,4 @@ class Api::V1::Items::SearchController < ApplicationController
   def filtering_params(params)
     params.permit(:name, :min_price, :max_price)
   end
-
 end
