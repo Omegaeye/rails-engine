@@ -197,16 +197,16 @@ RSpec.describe "Api::V1::Items", type: :request do
         end
       end
 
-    #   context "with invalid parameters" do
-    #     it "renders a JSON response with errors for the api/v1_item" do
-    #       item = @merchant = Merchant.create(name: 'Crystal r Us')
-    #       item = @merchant.items.create! valid_attributes
-    #       patch api_v1_item_url(item),
-    #             params: { name: '' }, headers: valid_headers, as: :json
-    #       expect(response).to have_http_status(:unprocessable_entity)
-    #       expect(response.content_type).to eq("application/json")
-    #     end
-    #   end
+      context "with invalid parameters" do
+        it "renders a JSON response with errors for the api/v1_item" do
+          item = @merchant = Merchant.create(name: 'Crystal r Us')
+          item = @merchant.items.create! valid_attributes
+          patch api_v1_item_url(item),
+                params: { name: '' }, headers: valid_headers, as: :json
+          expect(response).to have_http_status(:unprocessable_entity)
+          expect(response.content_type).to eq("application/json")
+        end
+      end
     end
 
     describe "DELETE /destroy" do
