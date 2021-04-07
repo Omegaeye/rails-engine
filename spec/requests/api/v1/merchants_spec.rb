@@ -44,8 +44,8 @@ RSpec.describe "Api::V1::Merchants", type: :request do
         expect(response).to be_successful
         body = JSON.parse(response.body, symbolize_names: true)
         expect(body[:data].size).to eq(20)
-        expect(body[:data].first[:id]).to eq("101")
-        expect(body[:data].last[:id]).to eq("120")
+        expect(body[:data].first[:id]).to eq("911")
+        expect(body[:data].last[:id]).to eq("930")
       end
 
       it "renders pages" do
@@ -66,7 +66,6 @@ RSpec.describe "Api::V1::Merchants", type: :request do
         get '/api/v1/merchants?per_page=50', headers: valid_headers, as: :json
         expect(response).to be_successful
         body = JSON.parse(response.body, symbolize_names: true)
-        expect(response).to have_http_status(200)
         expect(body[:data].size).to eq(50)
         expect(body[:data].first[:id].to_i).to eq(merchants.first.id)
         expect(body[:data].last[:id].to_i).to eq(merchants[49].id)
@@ -77,8 +76,7 @@ RSpec.describe "Api::V1::Merchants", type: :request do
         get '/api/v1/merchants?per_page=51', headers: valid_headers, as: :json
         expect(response).to be_successful
         body = JSON.parse(response.body, symbolize_names: true)
-        expect(response).to have_http_status(200)
-        expect(body[:data].size).to eq(51)
+        expect(body[:data].size).to eq(50)
         expect(body[:data].first[:id].to_i).to eq(merchants.first.id)
         expect(body[:data].last[:id].to_i).to eq(merchants.last.id)
       end
@@ -88,7 +86,6 @@ RSpec.describe "Api::V1::Merchants", type: :request do
         get '/api/v1/merchants?per_page=15', headers: valid_headers, as: :json
         expect(response).to be_successful
         body = JSON.parse(response.body, symbolize_names: true)
-        expect(response).to have_http_status(200)
         expect(body[:data].size).to eq(15)
         expect(body[:data].first[:id].to_i).to eq(merchants[0].id)
         expect(body[:data].last[:id].to_i).to eq(merchants[14].id)
@@ -99,8 +96,7 @@ RSpec.describe "Api::V1::Merchants", type: :request do
         get '/api/v1/merchants?page=3&per_page=20', headers: valid_headers, as: :json
         expect(response).to be_successful
         body = JSON.parse(response.body, symbolize_names: true)
-        expect(response).to have_http_status(200)
-        expect(body[:data].size).to eq(12)
+        expect(body[:data].size).to eq(10)
         expect(body[:data].first[:id].to_i).to eq(merchants[40].id)
         expect(body[:data].last[:id].to_i).to eq(merchants[49].id)
       end
@@ -110,7 +106,6 @@ RSpec.describe "Api::V1::Merchants", type: :request do
         get '/api/v1/merchants?page=7', headers: valid_headers, as: :json
         expect(response).to be_successful
         body = JSON.parse(response.body, symbolize_names: true)
-        expect(response).to have_http_status(200)
         expect(body[:data].size).to eq(0)
       end
     end

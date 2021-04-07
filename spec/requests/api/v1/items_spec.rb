@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe "Api::V1::Items", type: :request do
   describe "GET /index" do
-
     let(:valid_attributes) {
     {name: Faker::Vehicle.make,
      description: Faker::Vehicle.model,
@@ -42,7 +41,7 @@ RSpec.describe "Api::V1::Items", type: :request do
         expect(body[:data].size).to eq(20)
       end
 
-      it "renders pages" do
+      it "renders page 1" do
         get "/api/v1/items?page=1", headers: valid_headers, as: :json
         expect(response).to be_successful
         body = JSON.parse(response.body, symbolize_names: true)
@@ -51,7 +50,7 @@ RSpec.describe "Api::V1::Items", type: :request do
         expect(body[:data].last[:id]).to eq("200")
       end
 
-      it "renders pages" do
+      it "renders page 2" do
         items = Item.all
         get "/api/v1/items?page=2", headers: valid_headers, as: :json
         expect(response).to be_successful
@@ -68,7 +67,6 @@ RSpec.describe "Api::V1::Items", type: :request do
         get '/api/v1/items?per_page=50', headers: valid_headers, as: :json
         expect(response).to be_successful
         body = JSON.parse(response.body, symbolize_names: true)
-        expect(response).to have_http_status(200)
         expect(body[:data].size).to eq(50)
         expect(body[:data].first[:id].to_i).to eq(items.first.id)
         expect(body[:data].last[:id].to_i).to eq(items[49].id)
@@ -79,7 +77,6 @@ RSpec.describe "Api::V1::Items", type: :request do
         get '/api/v1/items?per_page=101', headers: valid_headers, as: :json
         expect(response).to be_successful
         body = JSON.parse(response.body, symbolize_names: true)
-        expect(response).to have_http_status(200)
         expect(body[:data].size).to eq(90)
         expect(body[:data].first[:id].to_i).to eq(items.first.id)
         expect(body[:data].last[:id].to_i).to eq(items.last.id)
@@ -90,7 +87,6 @@ RSpec.describe "Api::V1::Items", type: :request do
         get '/api/v1/items?per_page=15', headers: valid_headers, as: :json
         expect(response).to be_successful
         body = JSON.parse(response.body, symbolize_names: true)
-        expect(response).to have_http_status(200)
         expect(body[:data].size).to eq(15)
         expect(body[:data].first[:id].to_i).to eq(items[0].id)
         expect(body[:data].last[:id].to_i).to eq(items[14].id)
@@ -101,7 +97,6 @@ RSpec.describe "Api::V1::Items", type: :request do
         get '/api/v1/items?page=5&per_page=20', headers: valid_headers, as: :json
         expect(response).to be_successful
         body = JSON.parse(response.body, symbolize_names: true)
-        expect(response).to have_http_status(200)
         expect(body[:data].size).to eq(10)
         expect(body[:data].first[:id].to_i).to eq(items[80].id)
         expect(body[:data].last[:id].to_i).to eq(items[89].id)
@@ -112,7 +107,6 @@ RSpec.describe "Api::V1::Items", type: :request do
         get '/api/v1/items?page=7', headers: valid_headers, as: :json
         expect(response).to be_successful
         body = JSON.parse(response.body, symbolize_names: true)
-        expect(response).to have_http_status(200)
         expect(body[:data].size).to eq(0)
       end
     end
@@ -135,30 +129,33 @@ RSpec.describe "Api::V1::Items", type: :request do
       end
     end
 
-    # describe "POST /create" do
-    #   context "with valid parameters" do
-    #     it "creates a new Api::V1::Item" do
-    #       expect {
-    #         post "api/v1/items",
-    #              params: { name: Faker::Vehicle.make,
-    #               description: Faker::Vehicle.model,
-    #               unit_price: 200.00,
-    #               merchant_id: 43 }, headers: valid_headers, as: :json
-    #       }.to change(Item, :count).by(1)
-    #     end
-    #
-    #     it "renders a JSON response with the new api/v1_item" do
-    #       post api_v1_items_url,
-    #            params: { name: Faker::Vehicle.make,
-    #             description: Faker::Vehicle.model,
-    #             unit_price: 200,
-    #             merchant_id: 1 }, headers: valid_headers, as: :json
-    #       expect(response).to have_http_status(:created)
-    #       expect(response.content_type).to match(a_string_including("application/json"))
-    #     end
-    #   end
+    describe "POST /create" do
+      context "with valid parameters" do
+        it "creates a new Api::V1::Item" do
 
-      # context "with invalid parameters" do
+          @merchant = Merchant.create(id: 1, name: 'Crystal r Us')
+          expect {
+            post api_v1_items_url,
+                 params: { name: Faker::Vehicle.make,
+                  description: Faker::Vehicle.model,
+                  unit_price: 200.00,
+                  merchant_id: @merchant.id }, headers: valid_headers, as: :json
+          }.to change(Item, :count).by(1)
+        end
+
+        it "renders a JSON response with the new api/v1_item" do
+          @merchant = Merchant.create(id: 1, name: 'Crystal r Us')
+          post '/api/v1/items',
+               params: { name: 'Hello',
+                 description: 'biggie smalls',
+                unit_price: 200,
+                merchant_id: @merchant.id }, headers: valid_headers, as: :json
+          expect(response).to have_http_status(:created)
+          expect(response.content_type).to match(a_string_including("application/json"))
+        end
+      end
+
+      context "with invalid parameters" do
         it "does not create a new Api::V1::Item" do
           expect {
             post api_v1_items_url,
@@ -166,20 +163,20 @@ RSpec.describe "Api::V1::Items", type: :request do
           }.to change(Item, :count).by(0)
         end
 
-    #     it "renders a JSON response with errors for the new api/v1_item" do
-    #       post api_v1_items_url,
-    #            params: { name: '' }, headers: valid_headers, as: :json
-    #       expect(response).to have_http_status(:unprocessable_entity)
-    #       expect(response.content_type).to eq("application/json")
-    #     end
-    #   end
-    # end
+        it "renders a JSON response with errors for the new api/v1_item" do
+          post api_v1_items_url,
+               params: { name: '' }, headers: valid_headers, as: :json
+          expect(response).to have_http_status(404)
+          expect(response.content_type).to eq("application/json")
+        end
+      end
+    end
 
     describe "PATCH /update" do
       context "with valid parameters" do
 
         it "updates the requested api/v1_item" do
-          item = @merchant = Merchant.create(name: 'Crystal r Us')
+          @merchant = Merchant.create(name: 'Crystal r Us')
           item = @merchant.items.create! valid_attributes
           patch api_v1_item_url(item),
                 params: { name: "Help Me" }, headers: valid_headers, as: :json
@@ -203,7 +200,7 @@ RSpec.describe "Api::V1::Items", type: :request do
           item = @merchant.items.create! valid_attributes
           patch api_v1_item_url(item),
                 params: { name: '' }, headers: valid_headers, as: :json
-          expect(response).to have_http_status(:unprocessable_entity)
+          expect(response).to have_http_status(:not_found)
           expect(response.content_type).to eq("application/json")
         end
       end
@@ -230,7 +227,6 @@ RSpec.describe "Api::V1::Items", type: :request do
         @invoice_item6 = InvoiceItem.create(item: @item3, invoice: @invoice2, quantity: 100, unit_price: 100)
         @invoice_item7 = InvoiceItem.create(item: @item1, invoice: @invoice4, quantity: 100, unit_price: 100)
 
-        # item = @merchant.items.create! valid_attributes
         expect(Invoice.find(@invoice1.id).present?).to eq(true)
         expect {
           delete api_v1_item_url(@item1), headers: valid_headers, as: :json
