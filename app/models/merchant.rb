@@ -10,9 +10,11 @@ class Merchant < ApplicationRecord
   enum status: [:disabled, :enabled]
 
   scope :filter_by_name, -> (name) {where('name ILIKE ?', "%#{name}%")}
-  
+
   def revenue
-    transactions.where('result = ?', 'success')
+    transactions
+    .where('result = ?', 'success')
+    .where('invoices.status = ?', 'success')
     .pluck('sum(invoice_items.unit_price * invoice_items.quantity)')
     .first
     .round(2)
