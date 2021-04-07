@@ -12,8 +12,9 @@ class RevenueAnalytic
 
   def revenue
     @invoices
-    .joins(invoice_items: :transactions)
+    .joins(:invoice_items, :transactions)
     .where('transactions.result = ?', 'success')
+    .where('invoices.status = ?', 'shipped')
     .select('invoices.*, sum(invoice_items.quantity * invoice_items.unit_price) as total_revenue')
     .group(:id)
     .having(created_at: @start_date..@end_date)
