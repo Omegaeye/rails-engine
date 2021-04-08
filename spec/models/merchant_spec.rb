@@ -198,7 +198,7 @@ RSpec.describe Merchant, type: :model do
     end
 
     it "most_items_merchants" do
-      expect(Merchant.most_items_merchants(5).first).to eq(@merchant1)
+      expect(Merchant.most_items_merchants(5)).to eq([@merchant1, @merchant3, @merchant8, @merchant4, @merchant6])
     end
   end
 end
