@@ -56,7 +56,7 @@ gem install rails --version 5.2.4.3
 
   * Search for an items by prices
 
-![Method-items by prices]](https://user-images.githubusercontent.com/46826902/114093541-787eb780-9878-11eb-977c-95c2265c240c.png | width=100)
+![Method-items by prices]](https://user-images.githubusercontent.com/46826902/114093541-787eb780-9878-11eb-977c-95c2265c240c.png){width="50%"}
 
 ## Running the tests
 
