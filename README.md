@@ -1,13 +1,11 @@
-# Viewing Party
+# Rails-Engine
+  * Rails-Engine is an app that for developers to access the business database. The users are allow to search/find informations on merchants, items, and their invoices, as well as business analytic statistic
 
-Viewing party is a way for user to log in and search movies through themoviedb.com API. It also allows a user to create and view their movie night events and events that they are invited to.
+  https://github.com/Omegaeye/rails-engine
 
 ## Authors
 
-- **Jenny Branham** - github - https://github.com/jbranham
-- **Hope McGee** - github - https://github.com/hopesgit
 - **Khoa Nguyen** - github - https://github.com/Omegaeye
-https://github.com/Omegaeye/viewing_party
 
 ## Table of Contents
 
@@ -58,7 +56,7 @@ gem install rails --version 5.2.4.3
 
   * Search for an items by prices
 
-![Screen Shot 2021-04-08 at 2 40 36 PM](https://user-images.githubusercontent.com/46826902/114093541-787eb780-9878-11eb-977c-95c2265c240c.png|width=100)
+![Method-items by prices]](https://user-images.githubusercontent.com/46826902/114093541-787eb780-9878-11eb-977c-95c2265c240c.png | width=100)
 
 ## Running the tests
 
