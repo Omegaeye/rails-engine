@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2021-04-08T18:37:18-06:00">2021-04-08T18:37:18-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2021-04-08T20:34:40-06:00">2021-04-08T20:34:40-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -2939,7 +2939,7 @@
 
             
 
-            <code class="ruby">      @merchants = Merchant.filter_by_name(params[:name]).order(:name)</code>
+            <code class="ruby">    @merchants = Merchant.filter_by_name(params[:name]).order(:name)</code>
           </li>
         </div>
       
@@ -2950,7 +2950,7 @@
 
             
 
-            <code class="ruby">      if @merchants.empty?</code>
+            <code class="ruby">    if @merchants.empty?</code>
           </li>
         </div>
       
@@ -2972,7 +2972,7 @@
 
             
 
-            <code class="ruby">      else</code>
+            <code class="ruby">    else</code>
           </li>
         </div>
       
@@ -5429,7 +5429,7 @@
 
             
 
-            <code class="ruby">  scope :filter_by_name, -&gt; (name) { where([&quot;name ILIKE ? or description ILIKE ?&quot;, &quot;%#{name}%&quot;, &quot;%#{name}%&quot;])}</code>
+            <code class="ruby">  scope :filter_by_name, -&gt; (name) { where([&quot;name ILIKE ? or description = ?&quot;, &quot;%#{name}%&quot;, &quot;%#{name}%&quot;])}</code>
           </li>
         </div>
       

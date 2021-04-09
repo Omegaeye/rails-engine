@@ -8,10 +8,10 @@ class Api::V1::Merchants::SearchController < ApplicationController
   end
 
   def show
-      @merchants = Merchant.filter_by_name(params[:name]).order(:name)
-      if @merchants.empty?
+    @merchants = Merchant.filter_by_name(params[:name]).order(:name)
+    if @merchants.empty?
         render json: {data: {}}, status: 400
-      else
+    else
       @serial = MerchantSerializer.new(@merchants.first)
       render json: @serial
     end

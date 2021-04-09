@@ -10,7 +10,7 @@ class Item < ApplicationRecord
 
   enum status: [:disabled, :enabled]
 
-  scope :filter_by_name, -> (name) { where(["name ILIKE ? or description ILIKE ?", "%#{name}%", "%#{name}%"])}
+  scope :filter_by_name, -> (name) { where(["name ILIKE ? or description = ?", "%#{name}%", "%#{name}%"])}
 
   scope :filter_by_min_price, -> (price) { where('unit_price >= ?', price.to_i).order(:name)}
 
