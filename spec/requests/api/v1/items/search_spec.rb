@@ -153,6 +153,16 @@ RSpec.describe "Api::V1::Items::Searches", type: :request do
         get '/api/v1/items/find?name=ring&max_price=50'
         expect(response).to have_http_status(400)
       end
+
+      it "Edge case, min cannot be bigger than max" do
+        @merchant = Merchant.create(name: 'Crystal r Us')
+        @customer = Customer.create(first_name: 'Jennifer', last_name: 'Nguyen')
+        @item1 = @merchant.items.create(name: 'Blood Stone', description: 'Ruby Color', unit_price: 50)
+        @item2 = @merchant.items.create(name: 'Rose Quartz', description: 'Pink Color', unit_price: 100000)
+        @item3 = @merchant.items.create(name: 'Tigers Eye', description: 'Brown/Gold', unit_price: 200000000)
+        get '/api/v1/items/find?min_price=50&max_price=5'
+        expect(response).to have_http_status(400)
+      end
     end
   end
 end

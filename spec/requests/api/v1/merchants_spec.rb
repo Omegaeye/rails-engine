@@ -71,6 +71,14 @@ RSpec.describe "Api::V1::Merchants", type: :request do
         expect(body[:data].last[:id].to_i).to eq(merchants[49].id)
       end
 
+      it 'return 15 merchants per page' do
+        merchants = Merchant.all
+        get '/api/v1/merchants?per_page=1&page=2', headers: valid_headers, as: :json
+        expect(response).to be_successful
+        body = JSON.parse(response.body, symbolize_names: true)
+        expect(body[:data].size).to eq(1)
+      end
+
       it 'still returns all merchants if per_page is greater than all merchants' do
         merchants = Merchant.all
         get '/api/v1/merchants?per_page=51', headers: valid_headers, as: :json

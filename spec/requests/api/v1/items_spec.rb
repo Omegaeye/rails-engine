@@ -165,7 +165,7 @@ RSpec.describe "Api::V1::Items", type: :request do
 
         it "renders a JSON response with errors for the new api/v1_item" do
           post api_v1_items_url,
-               params: { name: '' }, headers: valid_headers, as: :json
+                headers: valid_headers, as: :json
           expect(response).to have_http_status(404)
           expect(response.content_type).to eq("application/json")
         end

@@ -11,9 +11,9 @@
 
   - [Getting Started](#getting-started)
   - [Runing the tests](#running-the-tests)
-  - [Deployment](#deployment)
-  - [Built With](#built-with)
-  - [Authors](#authors)
+  - [Method Highlights/Tests](#method-highlights/tests)
+  - [Running the tests](#running-the-tests)
+  - [API End Points](#api-end-points)
   - [License](#license)
   - [Acknowledgments](#acknowledgments)
 
@@ -52,11 +52,33 @@ gem install rails --version 5.2.4.3
     4. Migrate and Seed the database: `rails db:setup`
 
 
-## App Highlights
+## Method Highlights/Tests
 
-  * Search for an items by prices
+###Search for an items by prices
+  * Trying out public_send, this particular method send the values to the method inside the model.
 
-<img src="https://user-images.githubusercontent.com/46826902/114095050-38203900-987a-11eb-8c5e-281b5857c62f.png" width="50%" height="50%">
+  <img src="https://user-images.githubusercontent.com/46826902/114095050-38203900-987a-11eb-8c5e-281b5857c62f.png" width="75%" height="50%">
+
+  * Utilizing scope (class method), and the naming convention, the public_send able to pass the params value into the correct method.
+
+  <img src="https://user-images.githubusercontent.com/46826902/114096172-98fc4100-987b-11eb-8d43-e32c8829bb2d.png" width="75%" height="50%">
+
+####Testing this Method
+  * Testing items by prices
+     - Happy Path
+     <img src="https://user-images.githubusercontent.com/46826902/114103746-e631e000-9886-11eb-962f-09fad3cc34fa.png" width="75%" height="50%">\
+
+     <img src="https://user-images.githubusercontent.com/46826902/114104388-001ff280-9888-11eb-9eab-19249010ee5f.png" width="75%" height="50%">
+
+     - Sad Path
+     <img src="https://user-images.githubusercontent.com/46826902/114103855-12e5f780-9887-11eb-9b59-ebf451a4cb41.png" width="75%" height="50%">
+
+     <img src="https://user-images.githubusercontent.com/46826902/114104458-1f1e8480-9888-11eb-9510-1107cc82540b.png" width="75%" height="50%">
+
+     - Edge Case
+     <img src="https://user-images.githubusercontent.com/46826902/114105566-39596200-988a-11eb-896e-0e966b9fe9e3.png" width="75%" height="50%">
+
+
 
 ## Running the tests
 
@@ -66,45 +88,36 @@ In order to run all tests and see coverage run:
   bundle exec rspec
   ```
 
-### Test Highlights
+## API End Points
+  * All Merchants    - http://localhost:3000/api/v1/merchants then add ?per_page=<number_per_page>&page=<page_number>
+  * One Merchant     - http://localhost:3000/api/v1/merchants/{{merchant_id}}
+  * Find Merchants   - http://localhost:3000/api/v1/merchants/find_all?name=
+  * Find_all Merc.   - http://localhost:3000/api/v1/merchants/find_all?name=
+  * Merchant's Items - http://localhost:3000/api/v1/merchants/{{merchant_id}}/items
+  * Merc most_items  - http://localhost:3000/api/v1/merchants/most_items?quantity=
+  * Merc revenue     - http://localhost:3000/api/v1/revenue/merchants?quantity=1
 
-  This test access the url "/api/v1/merchants"
+  * Items            - http://localhost:3000/api/v1/items then add ?per_page=<number_per_page>&page=<page_number>
+  * One Item         - http://localhost:3000/api/v1/items/{{item_id}}
+  * Create Item      - Post 'http://localhost:3000/api/v1/items'
+  * Update Item      - Patch 'http://localhost:3000/api/v1/items'
+  * Delete Item      - Delete 'http://localhost:3000/api/v1/items/{{item_id}}'
+  * Item's Merchant  - http://localhost:3000/api/v1/items/{{item_id}}/merchant
+  * Find Items name  - http://localhost:3000/api/v1/items/find?name=
+  * Find Items Price - http://localhost:3000/api/v1/items/find?min_price= or max_price, or both
 
-  ```
-  it "renders a successful response" do
-    get api_v1_merchants_url, headers: valid_headers, as: :json
-    expect(response).to be_successful
-    body = JSON.parse(response.body, symbolize_names: true)
-    expect(body[:data].class).to eq(Array)
-    expect(body[:data].first.class).to eq(Hash)
-  end
-  ```
-
-## Deployment
-  * This app is screened through Travis CI before deploying to Heroku.
-  * Need API Key from themoviedb.org
-      * create an account https://www.themoviedb.org/
-      * Apply for Api key https://www.themoviedb.org/settings/api
-      * Input Api Key to application.yml, run:  
-        ```
-        atom config/application.yml
-        ```
-        ![Screen Shot 2021-03-30 at 11 08 56 AM](https://user-images.githubusercontent.com/46826902/113028529-9c3f5080-9148-11eb-935a-d39b8076bf17.png)
-  * Hosted on: Heroku - https://morning-savannah-16693.herokuapp.com/
+  * Revenue          - http://localhost:3000/api/v1/revenue?start={{start_date}}&end={{end_date}}
+  * Single Merc Rev  - http://localhost:3000/api/v1/revenue/merchants/{{merchant_id}}
 
 ## Built With
 
   - Ruby/Rails
-  - javascript/jquery
+  - HTML
 
 ## License
 
-This project is licensed under the [CC0 1.0 Universal](LICENSE.md)
-Creative Commons License - see the [LICENSE.md](LICENSE.md) file for
-details
+  - Me and me only
 
 ## Acknowledgments
 
-  - Hat tip to anyone whose code was used
-  - Inspiration
-  - etc
+  - My 2011 BE cohorts that helped me out a lot.
