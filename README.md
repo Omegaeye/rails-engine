@@ -7,7 +7,7 @@
 
 - **Khoa Nguyen** - github - https://github.com/Omegaeye
 
-##Table of Contents
+## Table of Contents
 
   - [Getting Started](#getting-started)
   - [Runing the tests](#running-the-tests)
@@ -17,9 +17,9 @@
   - [License](#license)
   - [Acknowledgments](#acknowledgments)
 
-##Getting Started
+## Getting Started
 
-###GemFile/Dependency
+### GemFile/Dependency
 
   ```
   gem 'fast_jsonapi'
@@ -35,7 +35,7 @@
   ```
 
 
-###Prerequisites
+### Prerequisites
 
 What things you need to install the software and how to install them
 
@@ -44,7 +44,7 @@ What things you need to install the software and how to install them
 gem install rails --version 5.2.4.3
 ```
 
-###Installing
+### Installing
 
     1. Clone Repo
     2. Install gem packages: `bundle install`
@@ -52,9 +52,9 @@ gem install rails --version 5.2.4.3
     4. Migrate and Seed the database: `rails db:setup`
 
 
-##Method Highlights/Tests
+## Method Highlights/Tests
 
-###Search for an items by prices
+### Search for an items by prices
   * Trying out public_send, this particular method send the values to the method inside the model.
 
   <img src="https://user-images.githubusercontent.com/46826902/114095050-38203900-987a-11eb-8c5e-281b5857c62f.png" width="75%" height="50%">
@@ -63,7 +63,7 @@ gem install rails --version 5.2.4.3
 
   <img src="https://user-images.githubusercontent.com/46826902/114096172-98fc4100-987b-11eb-8d43-e32c8829bb2d.png" width="75%" height="50%">
 
-###Testing this Method
+### Testing this Method
   * Testing items by prices
      - Happy Path
 
@@ -83,7 +83,7 @@ gem install rails --version 5.2.4.3
 
 
 
-##Running the tests
+## Running the tests
 
 In order to run all tests and see coverage run:
 
@@ -91,7 +91,7 @@ In order to run all tests and see coverage run:
   bundle exec rspec
   ```
 
-##API End Points
+## API End Points
   * All Merchants    - http://localhost:3000/api/v1/merchants then add ?per_page=<number_per_page>&page=<page_number>
   * One Merchant     - http://localhost:3000/api/v1/merchants/{{merchant_id}}
   * Find Merchants   - http://localhost:3000/api/v1/merchants/find_all?name=
@@ -112,15 +112,15 @@ In order to run all tests and see coverage run:
   * Revenue          - http://localhost:3000/api/v1/revenue?start={{start_date}}&end={{end_date}}
   * Single Merc Rev  - http://localhost:3000/api/v1/revenue/merchants/{{merchant_id}}
 
-##Built With
+## Built With
 
   - Ruby/Rails
   - HTML
 
-##License
+## License
 
   - Me and me only
 
-##Acknowledgments
+## Acknowledgments
 
   - My 2011 BE cohorts that helped me out a lot.
