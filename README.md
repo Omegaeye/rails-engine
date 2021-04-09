@@ -1,9 +1,9 @@
-#Rails-Engine
+# Rails-Engine
   * Rails-Engine is an app that for developers to access the business database. The users are allow to search/find informations on merchants, items, and their invoices, as well as business analytic statistic
 
   https://github.com/Omegaeye/rails-engine
 
-##Authors
+## Authors
 
 - **Khoa Nguyen** - github - https://github.com/Omegaeye
 
@@ -66,16 +66,19 @@ gem install rails --version 5.2.4.3
 ###Testing this Method
   * Testing items by prices
      - Happy Path
+
      <img src="https://user-images.githubusercontent.com/46826902/114103746-e631e000-9886-11eb-962f-09fad3cc34fa.png" width="75%" height="50%">\
 
      <img src="https://user-images.githubusercontent.com/46826902/114104388-001ff280-9888-11eb-9eab-19249010ee5f.png" width="75%" height="50%">
 
      - Sad Path
+
      <img src="https://user-images.githubusercontent.com/46826902/114103855-12e5f780-9887-11eb-9b59-ebf451a4cb41.png" width="75%" height="50%">
 
      <img src="https://user-images.githubusercontent.com/46826902/114104458-1f1e8480-9888-11eb-9510-1107cc82540b.png" width="75%" height="50%">
 
      - Edge Case
+
      <img src="https://user-images.githubusercontent.com/46826902/114105566-39596200-988a-11eb-896e-0e966b9fe9e3.png" width="75%" height="50%">
 
 
