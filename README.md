@@ -92,13 +92,15 @@ In order to run all tests and see coverage run:
   ```
 
 ## API End Points
+  To access the API end points, type in rails server then copy and paste the end points into the browser with the values.
+
   * All Merchants    - http://localhost:3000/api/v1/merchants then add ?per_page=<number_per_page>&page=<page_number>
   * One Merchant     - http://localhost:3000/api/v1/merchants/{{merchant_id}}
-  * Find Merchants   - http://localhost:3000/api/v1/merchants/find_all?name=
-  * Find_all Merc.   - http://localhost:3000/api/v1/merchants/find_all?name=
+  * Find Merchants   - http://localhost:3000/api/v1/merchants/find?name={{name}}
+  * Find_all Merc.   - http://localhost:3000/api/v1/merchants/find_all?name={{name}}
   * Merchant's Items - http://localhost:3000/api/v1/merchants/{{merchant_id}}/items
-  * Merc most_items  - http://localhost:3000/api/v1/merchants/most_items?quantity=
-  * Merc revenue     - http://localhost:3000/api/v1/revenue/merchants?quantity=1
+  * Merc most_items  - http://localhost:3000/api/v1/merchants/most_items?quantity={{quantity}}
+  * Merc revenue     - http://localhost:3000/api/v1/revenue/merchants?quantity={{quantity}}
 
   * Items            - http://localhost:3000/api/v1/items then add ?per_page=<number_per_page>&page=<page_number>
   * One Item         - http://localhost:3000/api/v1/items/{{item_id}}
@@ -106,9 +108,10 @@ In order to run all tests and see coverage run:
   * Update Item      - Patch 'http://localhost:3000/api/v1/items'
   * Delete Item      - Delete 'http://localhost:3000/api/v1/items/{{item_id}}'
   * Item's Merchant  - http://localhost:3000/api/v1/items/{{item_id}}/merchant
-  * Find Items name  - http://localhost:3000/api/v1/items/find?name=
-  * Find Items Price - http://localhost:3000/api/v1/items/find?min_price= or max_price, or both
-
+  * Find Items name  - http://localhost:3000/api/v1/items/find?name={{name}}
+  * Find Items Price - http://localhost:3000/api/v1/items/find?min_price={{min_price}}
+                       http://localhost:3000/api/v1/items/find?max_price={{max_price}}
+                       http://localhost:3000/api/v1/items/find?max_price={{max_price}}&&min_price={{min_price}}
   * Revenue          - http://localhost:3000/api/v1/revenue?start={{start_date}}&end={{end_date}}
   * Single Merc Rev  - http://localhost:3000/api/v1/revenue/merchants/{{merchant_id}}
 
