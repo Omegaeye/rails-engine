@@ -1,5 +1,5 @@
 # Rails-Engine
-  * Rails-Engine is an app that for developers to access the business database. The users are allow to search/find informations on merchants, items, and their invoices, as well as business analytic statistic
+  * Rails-Engine is an app for developers to access the business database. The users are allow to search/find informations on merchants, items, and their invoices, as well as business analytic statistics
 
   https://github.com/Omegaeye/rails-engine
 
