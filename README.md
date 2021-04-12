@@ -5,7 +5,8 @@
 
 ## Authors
 
-- **Khoa Nguyen** - github - https://github.com/Omegaeye
+- **Khoa Nguyen**           
+  * <img src="https://user-images.githubusercontent.com/46826902/114424033-fb538b00-9b74-11eb-884d-429d4ad4132d.png"> - https://github.com/Omegaeye
 
 ## Table of Contents
 
