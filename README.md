@@ -1,11 +1,18 @@
-# Rails-Engine-vKhoa
-  * Rails-Engine is an api for developers to access the business database. The users are allow to search/find informations on merchants, items, and their invoices, as well as business analytic statistics
+# Rails-Engine
+  * Rails-Engine is an app for developers to access the business database. The users are allow to search/find informations on merchants, items, and their invoices, as well as business analytic statistics
 
   https://github.com/Omegaeye/rails-engine
 
 ## Authors
 
-- **Khoa Nguyen** - github - https://github.com/Omegaeye
+- **Kyle Schulz**           - github - https://github.com/kylejschulz
+- **Andrew Johnston**       - github - https://github.com/avjohnston
+- **Joseph Budina**         - github - https://github.com/josephbudina
+- **Ben Fulton**            - github - https://github.com/b-enji-cmd
+- **Jake Volpe**            - github - https://github.com/javolpe
+- **Jesus Quezada-Guillen** - github - https://github.com/jequeza
+- **Kris Litman**           - github - https://github.com/krislitman
+- **Khoa Nguyen**           - github - <img src="https://user-images.githubusercontent.com/46826902/114423644-9dbf3e80-9b74-11eb-892f-c47a72936dee.png"> - https://github.com/Omegaeye
 
 ## Table of Contents
 
