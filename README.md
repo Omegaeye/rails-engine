@@ -6,7 +6,7 @@
 ## Authors
 
 - **Khoa Nguyen**           
-  * <img src="https://user-images.githubusercontent.com/46826902/114424033-fb538b00-9b74-11eb-884d-429d4ad4132d.png"> - https://github.com/Omegaeye
+  * <img src="https://user-images.githubusercontent.com/46826902/114424033-fb538b00-9b74-11eb-884d-429d4ad4132d.png" Href = "https://github.com/Omegaeye"> 
   * <img src="https://user-images.githubusercontent.com/46826902/114425392-43bf7880-9b76-11eb-811a-d3255ced4b3b.png">
 
 ## Table of Contents
