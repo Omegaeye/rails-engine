@@ -7,6 +7,7 @@
 
 - **Khoa Nguyen**           
   * <img src="https://user-images.githubusercontent.com/46826902/114424033-fb538b00-9b74-11eb-884d-429d4ad4132d.png"> - https://github.com/Omegaeye
+  * <img src="https://user-images.githubusercontent.com/46826902/114425043-ed523a00-9b75-11eb-9911-29a71a0a79fa.png">
 
 ## Table of Contents
 
